@@ -1,0 +1,19 @@
+name: ReverseLearning
+options:
+  bundleIdPrefix: com.reverselearning
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  ReverseLearning:
+    type: application
+    platform: iOS
+    sources:
+      - path: ReverseLearning
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.reverselearning.ios
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"

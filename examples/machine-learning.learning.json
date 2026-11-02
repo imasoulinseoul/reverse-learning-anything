@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "machine-learning",
+  "title": "Understand machine learning",
+  "description": "Start with patterns, training, and generalization.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "notes-p1",
+      "title": "A short introduction to machine learning",
+      "locator": "Section 1"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "how-models-learn",
+      "order": 1,
+      "title": "How models learn",
+      "estimatedMinutes": 3,
+      "concept": "A model learns patterns from training examples. We keep some examples out of training to check performance on unseen data. Overfitting means memorizing training-specific details that do not generalize well.",
+      "sourceRefs": [
+        "notes-p1"
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "multipleChoice",
+          "prompt": "What does a model learn from?",
+          "choices": [
+            {
+              "id": "q1-c1",
+              "text": "Patterns in training data"
+            },
+            {
+              "id": "q1-c2",
+              "text": "A fixed list of commands"
+            },
+            {
+              "id": "q1-c3",
+              "text": "Only its latest answer"
+            }
+          ],
+          "correctChoiceId": "q1-c1",
+          "explanation": "Training examples help a model find useful patterns.",
+          "sourceRefs": [
+            "notes-p1"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "multipleChoice",
+          "prompt": "Why keep some examples out of training?",
+          "choices": [
+            {
+              "id": "q2-c1",
+              "text": "To check performance on unseen examples"
+            },
+            {
+              "id": "q2-c2",
+              "text": "To teach the model every answer"
+            },
+            {
+              "id": "q2-c3",
+              "text": "To guarantee perfect predictions"
+            }
+          ],
+          "correctChoiceId": "q2-c1",
+          "explanation": "Held-out examples help estimate how well a model generalizes.",
+          "sourceRefs": [
+            "notes-p1"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "multipleChoice",
+          "prompt": "What is overfitting?",
+          "choices": [
+            {
+              "id": "q3-c1",
+              "text": "Memorizing training details that do not generalize"
+            },
+            {
+              "id": "q3-c2",
+              "text": "Learning useful patterns on new examples"
+            },
+            {
+              "id": "q3-c3",
+              "text": "Using too few files on a phone"
+            }
+          ],
+          "correctChoiceId": "q3-c1",
+          "explanation": "Overfitting happens when training-specific details hurt performance on new examples.",
+          "sourceRefs": [
+            "notes-p1"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+A model learns patterns from training examples. We keep some examples out of training to check performance on unseen data. Overfitting means memorizing training-specific details that do not generalize well.
