@@ -1,0 +1,392 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "github-advanced",
+  "subject": "softwareEngineering",
+  "title": "GitHub Advanced",
+  "description": "Practice review gates, merge strategies, conflicts, GitHub Actions workflows, and token permissions.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "ga-reviews",
+      "title": "GitHub Docs: Pull request reviews",
+      "locator": "https://docs.github.com/en/pull-requests/reference/pull-request-reviews"
+    },
+    {
+      "id": "ga-protection",
+      "title": "GitHub Docs: About protected branches",
+      "locator": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches"
+    },
+    {
+      "id": "ga-merges",
+      "title": "GitHub Docs: Pull request merges",
+      "locator": "https://docs.github.com/en/pull-requests/reference/pull-request-merges"
+    },
+    {
+      "id": "ga-conflicts",
+      "title": "GitHub Docs: Merge conflicts",
+      "locator": "https://docs.github.com/en/pull-requests/reference/merge-conflicts"
+    },
+    {
+      "id": "ga-workflows",
+      "title": "GitHub Docs: Workflows",
+      "locator": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows"
+    },
+    {
+      "id": "ga-syntax",
+      "title": "GitHub Docs: Workflow syntax",
+      "locator": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax"
+    },
+    {
+      "id": "ga-quickstart",
+      "title": "GitHub Docs: Quickstart for GitHub Actions",
+      "locator": "https://docs.github.com/en/actions/get-started/quickstart"
+    },
+    {
+      "id": "ga-token",
+      "title": "GitHub Docs: Authenticate with GITHUB_TOKEN",
+      "locator": "https://docs.github.com/en/actions/tutorials/authenticate-with-github_token"
+    },
+    {
+      "id": "ga-events",
+      "title": "GitHub Docs: Events that trigger workflows",
+      "locator": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "ga-review",
+      "order": 1,
+      "title": "Review gates and protected branches",
+      "estimatedMinutes": 3,
+      "concept": "Reviews can comment, approve, or request changes. Branch protection can require approvals and passing status checks before merging. A green check does not replace a required approval. Exact enforcement depends on repository settings and bypass permissions; a review request alone is not a configured merge gate.",
+      "sourceRefs": [
+        "ga-reviews",
+        "ga-protection"
+      ],
+      "questions": [
+        {
+          "id": "ga-q1",
+          "type": "multipleChoice",
+          "prompt": "A branch requires one approval and a passing test check, with no bypass. Tests pass, but nobody approved. What remains?",
+          "explanation": "Both configured requirements must be satisfied.",
+          "sourceRefs": [
+            "ga-protection"
+          ],
+          "choices": [
+            {
+              "id": "ga-q1-c1",
+              "text": "Merge immediately"
+            },
+            {
+              "id": "ga-q1-c2",
+              "text": "Obtain the required approval"
+            },
+            {
+              "id": "ga-q1-c3",
+              "text": "Rename the branch"
+            }
+          ],
+          "correctChoiceId": "ga-q1-c2"
+        },
+        {
+          "id": "ga-q2",
+          "type": "multipleSelect",
+          "prompt": "Which two requirements can branch protection enforce?",
+          "explanation": "These gates enforce workflow conditions, not a proof of correctness.",
+          "sourceRefs": [
+            "ga-protection"
+          ],
+          "choices": [
+            {
+              "id": "ga-q2-c1",
+              "text": "Required reviews"
+            },
+            {
+              "id": "ga-q2-c2",
+              "text": "Required status checks"
+            },
+            {
+              "id": "ga-q2-c3",
+              "text": "Automatic correctness of every change"
+            }
+          ],
+          "correctChoiceIds": [
+            "ga-q2-c1",
+            "ga-q2-c2"
+          ]
+        },
+        {
+          "id": "ga-q3",
+          "type": "matching",
+          "prompt": "Match the review decision to its meaning.",
+          "explanation": "Review decisions communicate different feedback states.",
+          "sourceRefs": [
+            "ga-reviews"
+          ],
+          "pairs": [
+            {
+              "id": "ga-q3-p1",
+              "left": "Comment",
+              "right": "Feedback without an approval decision"
+            },
+            {
+              "id": "ga-q3-p2",
+              "left": "Approve",
+              "right": "Reviewer considers the change ready"
+            },
+            {
+              "id": "ga-q3-p3",
+              "left": "Request changes",
+              "right": "Reviewer asks for issues to be addressed"
+            }
+          ]
+        },
+        {
+          "id": "ga-q4",
+          "type": "trueFalse",
+          "prompt": "Requesting a reviewer, by itself, configures a required approval gate.",
+          "explanation": "Required-review enforcement must be configured; asking for feedback is separate.",
+          "sourceRefs": [
+            "ga-reviews"
+          ],
+          "correctAnswer": false
+        }
+      ]
+    },
+    {
+      "id": "ga-integration",
+      "order": 2,
+      "title": "Choose a merge strategy and handle conflicts",
+      "estimatedMinutes": 3,
+      "concept": "A merge commit preserves branch commits and an explicit integration point. Squash and merge combines the pull request into one commit on the base branch. Rebase and merge places the commits onto the base without a merge commit. Conflicting edits need resolution before merging. Choosing one side blindly can discard intended changes.",
+      "sourceRefs": [
+        "ga-merges",
+        "ga-conflicts"
+      ],
+      "questions": [
+        {
+          "id": "ga-q5",
+          "type": "multipleChoice",
+          "prompt": "Your team wants one base-branch commit for a PR containing several fixup commits. Which option fits?",
+          "explanation": "Squashing combines the pull request into one base-branch commit.",
+          "sourceRefs": [
+            "ga-merges"
+          ],
+          "choices": [
+            {
+              "id": "ga-q5-c1",
+              "text": "Squash and merge"
+            },
+            {
+              "id": "ga-q5-c2",
+              "text": "Merge commit"
+            },
+            {
+              "id": "ga-q5-c3",
+              "text": "Leave the PR open forever"
+            }
+          ],
+          "correctChoiceId": "ga-q5-c1"
+        },
+        {
+          "id": "ga-q6",
+          "type": "trueFalse",
+          "prompt": "Rebase and merge adds a merge commit to mark the integration.",
+          "explanation": "Rebase and merge produces a linear integration without a merge commit.",
+          "sourceRefs": [
+            "ga-merges"
+          ],
+          "correctAnswer": false
+        },
+        {
+          "id": "ga-q7",
+          "type": "shortAnswer",
+          "prompt": "Both branches changed the same line incompatibly. What kind of conflict may prevent merging?",
+          "explanation": "Incompatible competing edits can cause a merge conflict.",
+          "sourceRefs": [
+            "ga-conflicts"
+          ],
+          "acceptedAnswers": [
+            "merge conflict",
+            "a merge conflict",
+            "merge conflicts"
+          ]
+        },
+        {
+          "id": "ga-q8",
+          "type": "flashcard",
+          "prompt": "Recall a reason to preserve a merge commit.",
+          "explanation": "Choose a strategy that matches the history your team needs.",
+          "sourceRefs": [
+            "ga-merges"
+          ],
+          "answer": "To retain individual branch commits and an explicit integration point in history."
+        }
+      ]
+    },
+    {
+      "id": "ga-automation",
+      "order": 3,
+      "title": "Understand an Actions workflow",
+      "estimatedMinutes": 3,
+      "concept": "GitHub Actions can automate builds and tests. Workflow YAML files live in .github/workflows. Events such as pull_request can trigger them. A workflow contains jobs; jobs run on runners and contain steps. A step can run a command or use an action. In YAML, runs-on selects the runner for a job.",
+      "sourceRefs": [
+        "ga-workflows",
+        "ga-syntax",
+        "ga-quickstart"
+      ],
+      "questions": [
+        {
+          "id": "ga-q9",
+          "type": "fillBlank",
+          "prompt": "Store workflow YAML files in the ___ directory.",
+          "explanation": "GitHub discovers workflow definitions in .github/workflows.",
+          "sourceRefs": [
+            "ga-workflows"
+          ],
+          "acceptedAnswers": [
+            ".github/workflows",
+            ".github/workflows/"
+          ]
+        },
+        {
+          "id": "ga-q10",
+          "type": "codeCompletion",
+          "prompt": "Fill the event name to run on pull-request activity.",
+          "explanation": "pull_request is the event name for this example.",
+          "sourceRefs": [
+            "ga-syntax"
+          ],
+          "code": "name: PR checks\non: [___]\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"Practice only\"",
+          "codeLanguage": "yaml",
+          "acceptedAnswers": [
+            "pull_request"
+          ]
+        },
+        {
+          "id": "ga-q11",
+          "type": "matching",
+          "prompt": "Match each workflow concept to its role.",
+          "explanation": "Events start workflows, which organize work into jobs and steps.",
+          "sourceRefs": [
+            "ga-workflows"
+          ],
+          "pairs": [
+            {
+              "id": "ga-q11-p1",
+              "left": "Event",
+              "right": "Trigger for a workflow"
+            },
+            {
+              "id": "ga-q11-p2",
+              "left": "Job",
+              "right": "Group of steps executed on a runner"
+            },
+            {
+              "id": "ga-q11-p3",
+              "left": "Step",
+              "right": "A command or action within a job"
+            }
+          ]
+        },
+        {
+          "id": "ga-q12",
+          "type": "multipleChoice",
+          "prompt": "Which YAML key selects the runner for a job?",
+          "explanation": "runs-on specifies the runner environment for a job.",
+          "sourceRefs": [
+            "ga-syntax"
+          ],
+          "choices": [
+            {
+              "id": "ga-q12-c1",
+              "text": "runs-on"
+            },
+            {
+              "id": "ga-q12-c2",
+              "text": "sourceRefs"
+            },
+            {
+              "id": "ga-q12-c3",
+              "text": "acceptedAnswers"
+            }
+          ],
+          "correctChoiceId": "ga-q12-c1"
+        }
+      ]
+    },
+    {
+      "id": "ga-permissions",
+      "order": 4,
+      "title": "Limit automation permissions",
+      "estimatedMinutes": 3,
+      "concept": "GITHUB_TOKEN lets workflows authenticate. Grant only the permissions a job needs. For example, permissions: contents: read grants read access to repository contents rather than write access. Fork pull_request workflows normally receive a read-only token and do not receive repository secrets; repository or enterprise settings can affect this behavior. Do not assume untrusted fork code can safely use privileged credentials.",
+      "sourceRefs": [
+        "ga-token",
+        "ga-events",
+        "ga-syntax"
+      ],
+      "questions": [
+        {
+          "id": "ga-q13",
+          "type": "codeCompletion",
+          "prompt": "Complete the permission value for read-only repository contents access.",
+          "explanation": "Use read for contents access when writes are unnecessary.",
+          "sourceRefs": [
+            "ga-token",
+            "ga-syntax"
+          ],
+          "code": "permissions:\n  contents: ___",
+          "codeLanguage": "yaml",
+          "acceptedAnswers": [
+            "read"
+          ]
+        },
+        {
+          "id": "ga-q14",
+          "type": "multipleChoice",
+          "prompt": "A job only needs to read repository contents. Which token permission approach fits?",
+          "explanation": "Keep token access limited to the job requirements.",
+          "sourceRefs": [
+            "ga-token"
+          ],
+          "choices": [
+            {
+              "id": "ga-q14-c1",
+              "text": "Grant every write permission"
+            },
+            {
+              "id": "ga-q14-c2",
+              "text": "Grant only the required read permission"
+            },
+            {
+              "id": "ga-q14-c3",
+              "text": "Put a personal token in the source file"
+            }
+          ],
+          "correctChoiceId": "ga-q14-c2"
+        },
+        {
+          "id": "ga-q15",
+          "type": "trueFalse",
+          "prompt": "A fork pull_request workflow is guaranteed to receive repository secrets.",
+          "explanation": "Fork pull-request runs normally do not receive repository secrets; do not rely on privileged credentials being available.",
+          "sourceRefs": [
+            "ga-events"
+          ],
+          "correctAnswer": false
+        },
+        {
+          "id": "ga-q16",
+          "type": "flashcard",
+          "prompt": "Recall the principle for granting workflow token access.",
+          "explanation": "Review permissions at workflow and job level.",
+          "sourceRefs": [
+            "ga-token"
+          ],
+          "answer": "Grant the minimum permissions needed for the task; avoid unnecessary write access."
+        }
+      ]
+    }
+  ]
+}

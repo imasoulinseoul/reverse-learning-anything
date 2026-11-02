@@ -11,7 +11,7 @@
 Content belongs to the learner. AI providers are interchangeable. Imported packs can be used offline. A streak encourages a habit without blocking learning. Avoid paid hearts, punitive timers, and competitive pressure in the MVP.
 
 ## Prototype delivered
-A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow with four bundled packs and nine question renderers, deterministic grading plus self-assessed flashcards, session XP, a versioned schema, a validator, and endpoint integration specifications. The library includes language learning, software engineering, general study, and machine learning. Restarting the app resets progress.
+A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow with six bundled packs and nine question renderers, deterministic grading plus self-assessed flashcards, session XP, a versioned schema, a validator, and endpoint integration specifications. The library includes language learning, software engineering, general study, machine learning, GitHub Basics, and GitHub Advanced. Restarting the app resets progress.
 
 ## MVP backlog
 - File importer for JSON packs, with size limits, schema + semantic validation, and actionable errors.

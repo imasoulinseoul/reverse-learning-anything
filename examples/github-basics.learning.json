@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "github-basics",
+  "subject": "softwareEngineering",
+  "title": "GitHub Basics",
+  "description": "Learn repositories, commits, branches, pull requests, forks, clones, and issues through short practical exercises.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "gb-platform",
+      "title": "GitHub Docs: What is GitHub?",
+      "locator": "https://docs.github.com/en/get-started/start-your-journey/what-is-github"
+    },
+    {
+      "id": "gb-repos",
+      "title": "GitHub Docs: About repositories",
+      "locator": "https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories"
+    },
+    {
+      "id": "gb-commits",
+      "title": "GitHub Docs: Commits",
+      "locator": "https://docs.github.com/en/pull-requests/reference/commits"
+    },
+    {
+      "id": "gb-flow",
+      "title": "GitHub Docs: GitHub flow",
+      "locator": "https://docs.github.com/en/get-started/using-github/github-flow"
+    },
+    {
+      "id": "gb-hello",
+      "title": "GitHub Docs: Hello World",
+      "locator": "https://docs.github.com/en/get-started/using-github/hello-world"
+    },
+    {
+      "id": "gb-forks",
+      "title": "GitHub Docs: Fork a repository",
+      "locator": "https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo"
+    },
+    {
+      "id": "gb-issues",
+      "title": "GitHub Docs: About issues",
+      "locator": "https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "gb-foundations",
+      "order": 1,
+      "title": "Repositories and history",
+      "estimatedMinutes": 3,
+      "concept": "Git tracks versions; GitHub hosts repositories and supports collaboration. A repository holds project files and revision history. A README introduces the project. A commit records a set of changes with a message and identifier. Saving or committing locally does not, by itself, upload changes to GitHub.",
+      "sourceRefs": [
+        "gb-platform",
+        "gb-repos",
+        "gb-commits",
+        "gb-hello"
+      ],
+      "questions": [
+        {
+          "id": "gb-q1",
+          "type": "multipleChoice",
+          "prompt": "Which tool tracks file versions locally?",
+          "explanation": "Git is the version-control tool; GitHub provides hosting and collaboration.",
+          "sourceRefs": [
+            "gb-platform"
+          ],
+          "choices": [
+            {
+              "id": "gb-q1-c1",
+              "text": "GitHub Issues"
+            },
+            {
+              "id": "gb-q1-c2",
+              "text": "Git"
+            },
+            {
+              "id": "gb-q1-c3",
+              "text": "A README"
+            }
+          ],
+          "correctChoiceId": "gb-q1-c2"
+        },
+        {
+          "id": "gb-q2",
+          "type": "matching",
+          "prompt": "Match each term to its role.",
+          "explanation": "Each term describes a different part of a project.",
+          "sourceRefs": [
+            "gb-repos",
+            "gb-commits",
+            "gb-hello"
+          ],
+          "pairs": [
+            {
+              "id": "gb-q2-p1",
+              "left": "Repository",
+              "right": "Project files and revision history"
+            },
+            {
+              "id": "gb-q2-p2",
+              "left": "README",
+              "right": "Introduction to the project"
+            },
+            {
+              "id": "gb-q2-p3",
+              "left": "Commit",
+              "right": "Recorded set of changes"
+            }
+          ]
+        },
+        {
+          "id": "gb-q3",
+          "type": "trueFalse",
+          "prompt": "Making a local commit automatically uploads it to GitHub.",
+          "explanation": "Committing records local history. Pushing publishes local commits to a remote.",
+          "sourceRefs": [
+            "gb-flow"
+          ],
+          "correctAnswer": false
+        },
+        {
+          "id": "gb-q4",
+          "type": "fillBlank",
+          "prompt": "A ___ records a set of changes in project history.",
+          "explanation": "A commit records changes and includes a descriptive message.",
+          "sourceRefs": [
+            "gb-commits"
+          ],
+          "acceptedAnswers": [
+            "commit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gb-workflow",
+      "order": 2,
+      "title": "From branch to pull request",
+      "estimatedMinutes": 3,
+      "concept": "A branch lets you work separately from the default branch. For this exercise, start a branch, edit a file, commit and push the change, then open a pull request. A pull request proposes merging changes into a base branch and gives collaborators a place to discuss them. Opening it does not itself merge the change. Inspect the proposed changes before merging.",
+      "sourceRefs": [
+        "gb-flow",
+        "gb-hello"
+      ],
+      "questions": [
+        {
+          "id": "gb-q5",
+          "type": "ordering",
+          "prompt": "Order this simple contribution workflow.",
+          "explanation": "Publish the branch before proposing its changes for review.",
+          "sourceRefs": [
+            "gb-flow"
+          ],
+          "items": [
+            {
+              "id": "gb-q5-s1",
+              "text": "Create a branch"
+            },
+            {
+              "id": "gb-q5-s2",
+              "text": "Edit and commit a change"
+            },
+            {
+              "id": "gb-q5-s3",
+              "text": "Push the branch"
+            },
+            {
+              "id": "gb-q5-s4",
+              "text": "Open a pull request"
+            }
+          ],
+          "correctOrder": [
+            "gb-q5-s1",
+            "gb-q5-s2",
+            "gb-q5-s3",
+            "gb-q5-s4"
+          ]
+        },
+        {
+          "id": "gb-q6",
+          "type": "multipleSelect",
+          "prompt": "Select both reasons to use a pull request.",
+          "explanation": "Pull requests support discussion and inspection of proposed changes.",
+          "sourceRefs": [
+            "gb-hello"
+          ],
+          "choices": [
+            {
+              "id": "gb-q6-c1",
+              "text": "Discuss proposed changes"
+            },
+            {
+              "id": "gb-q6-c2",
+              "text": "Merge without any review opportunity"
+            },
+            {
+              "id": "gb-q6-c3",
+              "text": "Inspect changes before integration"
+            }
+          ],
+          "correctChoiceIds": [
+            "gb-q6-c1",
+            "gb-q6-c3"
+          ]
+        },
+        {
+          "id": "gb-q7",
+          "type": "shortAnswer",
+          "prompt": "What is the full name of the GitHub feature abbreviated PR?",
+          "explanation": "PR means pull request.",
+          "sourceRefs": [
+            "gb-hello"
+          ],
+          "acceptedAnswers": [
+            "pull request",
+            "a pull request"
+          ]
+        },
+        {
+          "id": "gb-q8",
+          "type": "flashcard",
+          "prompt": "Before revealing: why use a separate branch?",
+          "explanation": "A branch keeps ongoing work separate until you integrate it.",
+          "sourceRefs": [
+            "gb-flow"
+          ],
+          "answer": "To develop a change separately from the default branch and make it available for review."
+        }
+      ]
+    },
+    {
+      "id": "gb-collaborate",
+      "order": 3,
+      "title": "Forks, clones, and issues",
+      "estimatedMinutes": 3,
+      "concept": "A fork is a separate repository on GitHub connected to an upstream project. It can let you propose a contribution without changing the original directly. A clone downloads repository data to your computer. Issues track work such as bugs and ideas; pull requests propose code or file changes. Reporting a bug does not automatically fix or merge anything.",
+      "sourceRefs": [
+        "gb-forks",
+        "gb-repos",
+        "gb-issues"
+      ],
+      "questions": [
+        {
+          "id": "gb-q9",
+          "type": "multipleChoice",
+          "prompt": "You want a local copy of repository history. Which operation fits?",
+          "explanation": "Cloning downloads repository data to your computer.",
+          "sourceRefs": [
+            "gb-repos"
+          ],
+          "choices": [
+            {
+              "id": "gb-q9-c1",
+              "text": "Create an issue"
+            },
+            {
+              "id": "gb-q9-c2",
+              "text": "Clone"
+            },
+            {
+              "id": "gb-q9-c3",
+              "text": "Approve a review"
+            }
+          ],
+          "correctChoiceId": "gb-q9-c2"
+        },
+        {
+          "id": "gb-q10",
+          "type": "multipleChoice",
+          "prompt": "You found a bug but have no fix yet. What is a useful first contribution?",
+          "explanation": "An issue can capture a reproducible bug report for discussion.",
+          "sourceRefs": [
+            "gb-issues"
+          ],
+          "choices": [
+            {
+              "id": "gb-q10-c1",
+              "text": "Open an issue describing the problem"
+            },
+            {
+              "id": "gb-q10-c2",
+              "text": "Merge an empty pull request"
+            },
+            {
+              "id": "gb-q10-c3",
+              "text": "Delete the upstream repository"
+            }
+          ],
+          "correctChoiceId": "gb-q10-c1"
+        },
+        {
+          "id": "gb-q11",
+          "type": "trueFalse",
+          "prompt": "Creating a fork immediately changes the upstream project.",
+          "explanation": "A fork is separate; proposed changes can be offered back through a pull request.",
+          "sourceRefs": [
+            "gb-forks"
+          ],
+          "correctAnswer": false
+        },
+        {
+          "id": "gb-q12",
+          "type": "matching",
+          "prompt": "Match the action to the result.",
+          "explanation": "Forking, cloning, and issue tracking solve different collaboration needs.",
+          "sourceRefs": [
+            "gb-forks",
+            "gb-repos",
+            "gb-issues"
+          ],
+          "pairs": [
+            {
+              "id": "gb-q12-p1",
+              "left": "Fork",
+              "right": "Create a separate repository on GitHub"
+            },
+            {
+              "id": "gb-q12-p2",
+              "left": "Clone",
+              "right": "Download a repository to your computer"
+            },
+            {
+              "id": "gb-q12-p3",
+              "left": "Open an issue",
+              "right": "Record work or a bug for discussion"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CE468865A542CAB3B02001B /* github-advanced.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = 786E1745641DFCB86178F128 /* github-advanced.learning.json */; };
 		4EE011693CAA044412EF230D /* sample.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = AD6888BFE92B9C6459D7A1D9 /* sample.learning.json */; };
 		4F936B309EE75E3E02BD8D4A /* spanish-basics.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D56D2250D1665FF8058A931 /* spanish-basics.learning.json */; };
 		5D1936465D5818C2F2B58DB8 /* study-skills.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = 169F93C96BEF5D7504D3A34F /* study-skills.learning.json */; };
 		712F7BC371AB670A2EA6BA43 /* ReverseLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EFC25BB14A9D8D7EF3B50D /* ReverseLearningApp.swift */; };
 		996FDCC102860498CADE7A4E /* LearningPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2E78DEA816DE6BB9C6CFE /* LearningPack.swift */; };
+		A83435FB1695E907C6694372 /* github-basics.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = DC97A4BE968B29FABCB7BC15 /* github-basics.learning.json */; };
 		ECA9242829039AE695E7AEE1 /* python-foundations.learning.json in Resources */ = {isa = PBXBuildFile; fileRef = 25623CBF830FFCABB93CE18C /* python-foundations.learning.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		169F93C96BEF5D7504D3A34F /* study-skills.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "study-skills.learning.json"; sourceTree = "<group>"; };
 		25623CBF830FFCABB93CE18C /* python-foundations.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "python-foundations.learning.json"; sourceTree = "<group>"; };
+		786E1745641DFCB86178F128 /* github-advanced.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "github-advanced.learning.json"; sourceTree = "<group>"; };
 		85230440ABACA618F391EEC8 /* ReverseLearning.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ReverseLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D56D2250D1665FF8058A931 /* spanish-basics.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "spanish-basics.learning.json"; sourceTree = "<group>"; };
 		AD6888BFE92B9C6459D7A1D9 /* sample.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample.learning.json; sourceTree = "<group>"; };
 		B6D2E78DEA816DE6BB9C6CFE /* LearningPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPack.swift; sourceTree = "<group>"; };
 		C3EFC25BB14A9D8D7EF3B50D /* ReverseLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLearningApp.swift; sourceTree = "<group>"; };
+		DC97A4BE968B29FABCB7BC15 /* github-basics.learning.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "github-basics.learning.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -37,6 +41,8 @@
 		239C9717101AD9EC5D7EAA1E /* ReverseLearning */ = {
 			isa = PBXGroup;
 			children = (
+				786E1745641DFCB86178F128 /* github-advanced.learning.json */,
+				DC97A4BE968B29FABCB7BC15 /* github-basics.learning.json */,
 				B6D2E78DEA816DE6BB9C6CFE /* LearningPack.swift */,
 				25623CBF830FFCABB93CE18C /* python-foundations.learning.json */,
 				C3EFC25BB14A9D8D7EF3B50D /* ReverseLearningApp.swift */,
@@ -111,6 +117,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE468865A542CAB3B02001B /* github-advanced.learning.json in Resources */,
+				A83435FB1695E907C6694372 /* github-basics.learning.json in Resources */,
 				ECA9242829039AE695E7AEE1 /* python-foundations.learning.json in Resources */,
 				4EE011693CAA044412EF230D /* sample.learning.json in Resources */,
 				4F936B309EE75E3E02BD8D4A /* spanish-basics.learning.json in Resources */,

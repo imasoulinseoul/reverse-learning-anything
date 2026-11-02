@@ -2,7 +2,7 @@
 
 An early iPhone app concept for turning your own learning material into short, playful lessons using your own AI provider.
 
-**Status: visual PoC + offline SwiftUI starter.** Import, live AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads four bundled packs and runs nine question types locally across language, software engineering, and study packs.
+**Status: visual PoC + offline SwiftUI starter.** Import, live AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads six bundled packs and runs nine question types locally across language, software engineering, and study packs.
 
 ![iPhone concept](docs/design/iphone-concept-v2.png)
 
@@ -47,6 +47,15 @@ The validator checks JSON Schema plus ID uniqueness, references, answers, and se
 All nine types have native demo renderers: `multipleChoice`, `multipleSelect`, `trueFalse`, `shortAnswer`, `fillBlank`, `ordering`, `matching`, `flashcard`, `codeCompletion`. Code completion compares text without execution. Open-ended essays, speech/listening assessment, and executable coding challenges are future extensions, not supported pack types.
 
 Short text answers match explicit accepted answers after Unicode normalization, case folding to lowercase, and whitespace normalization; accents and punctuation remain significant. Code answers only trim surrounding whitespace and remain case-sensitive. Flashcards use learner self-assessment, which counts toward session XP. All other question types use deterministic grading.
+
+## GitHub PoC courses
+
+| Course | Content | Size |
+| --- | --- | --- |
+| [GitHub Basics](examples/github-basics.learning.json) | Repositories, history, branches, pull requests, forks, clones, issues | 3 lessons · 12 exercises · ~9 minutes |
+| [GitHub Advanced](examples/github-advanced.learning.json) | Reviews, branch protection, merge strategies, conflicts, Actions, token permissions | 4 lessons · 16 exercises · ~12 minutes |
+
+Both are bundled in the app library and work offline. Their [Basics notes](examples/github-basics-notes.md) and [Advanced notes](examples/github-advanced-notes.md) include official GitHub documentation links, prerequisites, and optional practice. Pack citations are plain text references; studying a pack never executes commands, calls GitHub, or changes a repository. The two courses collectively demonstrate all nine supported question types.
 
 ## Architecture and next steps
 

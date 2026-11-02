@@ -10,7 +10,7 @@ struct ReverseLearningApp: App {
 }
 
 struct ContentView: View {
-    private let packs: [LearningPack] = ["sample", "spanish-basics", "python-foundations", "study-skills"].compactMap { name in
+    private let packs: [LearningPack] = ["github-basics", "github-advanced", "sample", "spanish-basics", "python-foundations", "study-skills"].compactMap { name in
         guard let url = Bundle.main.url(forResource: name + ".learning", withExtension: "json"),
               let data = try? Data(contentsOf: url) else { return nil }
         return try? JSONDecoder().decode(LearningPack.self, from: data)

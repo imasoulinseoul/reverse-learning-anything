@@ -35,6 +35,8 @@ Matching labels must be unique after trimming and case folding on each side, to 
 
 ## Examples and limits
 
+- `github-basics.learning.json`: three introductory GitHub lessons, twelve exercises, and companion source notes.
+- `github-advanced.learning.json`: four GitHub collaboration and automation lessons, sixteen exercises, and companion source notes.
 - `spanish-basics.learning.json`: vocabulary, cloze, phrase matching, sentence order, translation recall, flashcards.
 - `python-foundations.learning.json`: code reading, multiple select, true/false, completion, terminology.
 - `study-skills.learning.json`: retrieval practice, sequencing, self-assessed recall.
