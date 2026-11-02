@@ -1,0 +1,1 @@
+Python lists are mutable. A tuple is immutable. range(3) produces 0, 1, 2. The len function returns the number of items in a list. A function definition begins with def. Reading code is different from running it; this pack never executes code.

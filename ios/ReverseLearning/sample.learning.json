@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "id": "machine-learning",
   "title": "Understand machine learning",
   "description": "Start with patterns, training, and generalization.",
@@ -96,5 +96,6 @@
         }
       ]
     }
-  ]
+  ],
+  "subject": "generalStudy"
 }

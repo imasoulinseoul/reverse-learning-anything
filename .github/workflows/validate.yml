@@ -9,5 +9,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt
-      - run: python scripts/validate_pack.py examples/*.learning.json ios/ReverseLearning/sample.learning.json
+      - run: python scripts/validate_pack.py examples/*.learning.json ios/ReverseLearning/*.learning.json
+      - run: python -m unittest discover -s scripts -p 'test_*.py'
       - run: cmp examples/machine-learning.learning.json ios/ReverseLearning/sample.learning.json
+      - run: |
+          for name in spanish-basics python-foundations study-skills; do
+            cmp "examples/$name.learning.json" "ios/ReverseLearning/$name.learning.json"
+          done
+  grading:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swiftc ios/ReverseLearning/LearningPack.swift scripts/test_grading.swift -o /tmp/test-grading
+      - run: /tmp/test-grading

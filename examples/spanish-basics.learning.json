@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "spanish-basics",
+  "subject": "language",
+  "title": "Spanish: first words",
+  "description": "Hola means hello. Gracias means thank you. Por favor means please. To say I want water, say Quiero agua. In this introductory exercise the phrase order is Quiero then agua.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "source-es",
+      "title": "Spanish: first words — supplied notes",
+      "locator": "Section 1"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "spanish-basics-lesson",
+      "order": 1,
+      "title": "Spanish: first words",
+      "estimatedMinutes": 3,
+      "concept": "Hola means hello. Gracias means thank you. Por favor means please. To say I want water, say Quiero agua. In this introductory exercise the phrase order is Quiero then agua.",
+      "sourceRefs": [
+        "source-es"
+      ],
+      "questions": [
+        {
+          "id": "es-choice",
+          "type": "multipleChoice",
+          "prompt": "Which word means hello?",
+          "explanation": "Hola is a greeting.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "choices": [
+            {
+              "id": "es-c0",
+              "text": "Hola"
+            },
+            {
+              "id": "es-c1",
+              "text": "Gracias"
+            },
+            {
+              "id": "es-c2",
+              "text": "Agua"
+            }
+          ],
+          "correctChoiceId": "es-c0"
+        },
+        {
+          "id": "es-blank",
+          "type": "fillBlank",
+          "prompt": "Complete the phrase: ___ agua (I want water).",
+          "explanation": "Quiero means I want.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "acceptedAnswers": [
+            "Quiero"
+          ]
+        },
+        {
+          "id": "es-match",
+          "type": "matching",
+          "prompt": "Match each Spanish phrase to its English meaning.",
+          "explanation": "These phrases are useful in everyday conversation.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "pairs": [
+            {
+              "id": "es-p1",
+              "left": "Gracias",
+              "right": "Thank you"
+            },
+            {
+              "id": "es-p2",
+              "left": "Por favor",
+              "right": "Please"
+            },
+            {
+              "id": "es-p3",
+              "left": "Hola",
+              "right": "Hello"
+            }
+          ]
+        },
+        {
+          "id": "es-order",
+          "type": "ordering",
+          "prompt": "Arrange the words to say I want water.",
+          "explanation": "Quiero comes before agua.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "items": [
+            {
+              "id": "es-word0",
+              "text": "Quiero"
+            },
+            {
+              "id": "es-word1",
+              "text": "agua"
+            }
+          ],
+          "correctOrder": [
+            "es-word0",
+            "es-word1"
+          ]
+        },
+        {
+          "id": "es-recall",
+          "type": "shortAnswer",
+          "prompt": "How do you say thank you in Spanish?",
+          "explanation": "Gracias means thank you.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "acceptedAnswers": [
+            "Gracias"
+          ]
+        },
+        {
+          "id": "es-card",
+          "type": "flashcard",
+          "prompt": "Recall the Spanish phrase for please.",
+          "explanation": "Say it aloud before revealing the answer.",
+          "sourceRefs": [
+            "source-es"
+          ],
+          "answer": "Por favor"
+        }
+      ]
+    }
+  ]
+}

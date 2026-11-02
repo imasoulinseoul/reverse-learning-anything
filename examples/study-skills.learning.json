@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "study-skills",
+  "subject": "generalStudy",
+  "title": "Study: retrieval and review",
+  "description": "Retrieval practice means recalling an idea before looking at the answer. Spaced review revisits material over time. For this study routine: first read a short idea, next recall it without notes, then check your answer, and finally schedule a review.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "source-study",
+      "title": "Study: retrieval and review — supplied notes",
+      "locator": "Section 1"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "study-skills-lesson",
+      "order": 1,
+      "title": "Study: retrieval and review",
+      "estimatedMinutes": 3,
+      "concept": "Retrieval practice means recalling an idea before looking at the answer. Spaced review revisits material over time. For this study routine: first read a short idea, next recall it without notes, then check your answer, and finally schedule a review.",
+      "sourceRefs": [
+        "source-study"
+      ],
+      "questions": [
+        {
+          "id": "study-bool",
+          "type": "trueFalse",
+          "prompt": "Retrieval practice starts by trying to recall an idea.",
+          "explanation": "Try recalling before looking at the answer.",
+          "sourceRefs": [
+            "source-study"
+          ],
+          "correctAnswer": true
+        },
+        {
+          "id": "study-order",
+          "type": "ordering",
+          "prompt": "Put the study routine in order.",
+          "explanation": "Read, recall, check, then schedule a review.",
+          "sourceRefs": [
+            "source-study"
+          ],
+          "items": [
+            {
+              "id": "study-step0",
+              "text": "Read a short idea"
+            },
+            {
+              "id": "study-step1",
+              "text": "Recall without notes"
+            },
+            {
+              "id": "study-step2",
+              "text": "Check your answer"
+            },
+            {
+              "id": "study-step3",
+              "text": "Schedule a review"
+            }
+          ],
+          "correctOrder": [
+            "study-step0",
+            "study-step1",
+            "study-step2",
+            "study-step3"
+          ]
+        },
+        {
+          "id": "study-card",
+          "type": "flashcard",
+          "prompt": "What does spaced review mean?",
+          "explanation": "Review sessions are spread over time.",
+          "sourceRefs": [
+            "source-study"
+          ],
+          "answer": "Revisiting material over time."
+        }
+      ]
+    }
+  ]
+}

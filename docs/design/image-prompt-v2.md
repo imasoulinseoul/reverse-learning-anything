@@ -1,0 +1,7 @@
+# Updated concept generation
+
+Generated using the built-in image generation tool, with `iphone-concept.png` as the reference. Saved as `iphone-concept-v2.png`. This is a visual PoC, not a screenshot of the native demo.
+
+## Final prompt
+
+Edit this iPhone concept board. Keep the monochrome premium iOS style, original icon, three iPhones, crisp readable typography and spacious composition. Rename the board title exactly "Reverse Learning Anything", fitting it cleanly across the top. Left screen library should have three courses: "Spanish: first words", "Python: read and reason", "Study: retrieval and review", with small labels "Language", "Software engineering", "General study". Retain Your AI custom endpoint setting. Center screen should show language matching exercise titled "Match the meaning", with three Spanish rows Hola, Gracias, Por favor and selectable English meanings Hello, Thank you, Please. Show progress, black action button. Right screen should show a Python code-completion exercise headed "Complete the code", code block with "items = [10, 20, 30]" and "count = ___(items)", typed answer "len", explanation "len returns the number of items.", and small note "Checked as text · never executed". Bottom board captions "01 / Bring any subject", "02 / Practice in different ways", "03 / Learn by doing". Avoid colors, additional devices, clutter. This is a design concept of a bring-your-own-material and AI iPhone learning app.

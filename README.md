@@ -1,10 +1,10 @@
-# Reverse Learning
+# Reverse Learning Anything
 
 An early iPhone app concept for turning your own learning material into short, playful lessons using your own AI provider.
 
-**Status: visual PoC + offline SwiftUI starter.** Import, live AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads one bundled pack and runs multiple-choice lessons locally.
+**Status: visual PoC + offline SwiftUI starter.** Import, live AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads four bundled packs and runs nine question types locally across language, software engineering, and study packs.
 
-![iPhone concept](docs/design/iphone-concept.png)
+![iPhone concept](docs/design/iphone-concept-v2.png)
 
 ## The idea
 
@@ -26,15 +26,27 @@ Select an iPhone simulator and run. Device signing requires your own development
 
 ## Create a learning pack
 
-Use [the JSON Schema](schemas/learning-pack.schema.json), [the sample pack](examples/machine-learning.learning.json), and [the format guide](docs/learning-pack.md). Version 1 supports text instruction and single-answer multiple-choice questions. It rejects unknown properties and requires source citations, explanations, stable IDs, and explicit order.
+Use [the JSON Schema](schemas/learning-pack.schema.json), [the sample pack](examples/machine-learning.learning.json), and [the format guide](docs/learning-pack.md). Version 2 supports nine question types and subject metadata; the validator also accepts existing v1 multiple-choice packs. It rejects unknown properties and requires source citations, explanations, stable IDs, and explicit order.
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
-.venv/bin/python scripts/validate_pack.py examples/machine-learning.learning.json
+.venv/bin/python scripts/validate_pack.py examples/*.learning.json
 ```
 
 The validator checks JSON Schema plus ID uniqueness, references, answers, and sequence. The demo uses the bundled validated sample; validation of arbitrary imported files remains future work.
+
+## Learn across subjects
+
+| Use case | Example exercises |
+| --- | --- |
+| Language learning | Vocabulary choice, translation recall, sentence ordering, phrase matching, fill-in-the-blank, flashcards |
+| Software engineering | Read code, select valid statements, complete a code blank, explain terminology, order steps |
+| General study | Recall definitions, true/false, matching, sequence a process, self-assessed flashcards |
+
+All nine types have native demo renderers: `multipleChoice`, `multipleSelect`, `trueFalse`, `shortAnswer`, `fillBlank`, `ordering`, `matching`, `flashcard`, `codeCompletion`. Code completion compares text without execution. Open-ended essays, speech/listening assessment, and executable coding challenges are future extensions, not supported pack types.
+
+Short text answers match explicit accepted answers after Unicode normalization, case folding to lowercase, and whitespace normalization; accents and punctuation remain significant. Code answers only trim surrounding whitespace and remain case-sensitive. Flashcards use learner self-assessment, which counts toward session XP. All other question types use deterministic grading.
 
 ## Architecture and next steps
 
@@ -47,7 +59,7 @@ No provider credentials, user documents, or private project assets belong in thi
 
 ## Validation
 
-The sample pack is checked by CI. Xcode compilation and simulator visual QA require full Xcode; they were not available in the initial authoring environment.
+All sample packs and validator rejection tests are checked by CI. Foundation-only Swift grading tests also run on macOS. Locally, format validation, grading tests, project generation, and Swift syntax checks pass. Xcode compilation and simulator visual QA require full Xcode; they were not available in the initial authoring environment.
 
 ## License
 

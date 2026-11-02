@@ -1,18 +1,45 @@
-# Learning pack v1
+# Learning pack v2
 
-A pack is UTF-8 JSON conforming to `schemas/learning-pack.schema.json`. The canonical schema version is `1.0.0`; the file extension recommendation is `.learning.json`. Unknown properties are rejected to expose typos and prevent accidental credential storage.
+A pack is UTF-8 JSON conforming to `schemas/learning-pack.schema.json`. Version `2.0.0` adds `subject` and a strict union of question types. The file extension is `.learning.json`. Unknown properties are rejected. The validator continues accepting version `1.0.0` using `learning-pack-v1.schema.json`; producers should generate v2. Existing v1 packs can migrate by changing the version to 2.0.0 and adding `subject`, while keeping their existing multiple-choice questions.
+
+## Shared structure
 
 | Field | Meaning |
 | --- | --- |
 | schemaVersion | Exact supported format version |
 | id | Stable pack ID |
-| title, description, language | Learner-facing metadata; language is a language tag such as en-AU |
-| sources | Local citation records: ID, title, and locator such as page or section |
-| lessons | Ordered short lessons with concept text, duration, citations, and questions |
-| questions | Multiple-choice exercises with stable choice IDs, one correct ID, explanation and citations |
+| subject | `language`, `softwareEngineering`, `generalStudy`, or `other` |
+| title, description, language | Metadata; `language` is the instructional language tag, such as en-AU, rather than the language being learned |
+| sources | Local citation records: ID, title, locator such as page or section |
+| lessons | Ordered lessons with concept text, duration, citations, and questions |
 
-IDs must be unique across all objects. Lesson order must be contiguous from 1. Every source reference must resolve. Each correct choice must exist in that question. `estimatedMinutes` is an integer from 1–15. Citations are plain text metadata: the app must never automatically fetch them. Packs contain no API endpoint, credentials, executable content, or HTML.
+Every question requires `id`, `type`, `prompt`, `explanation`, and `sourceRefs`, plus exactly the fields for its variant below. IDs are globally unique in a pack, including choice, item, and pair IDs. All source references must resolve. Lesson order is contiguous from 1. Duration is an integer from 1–15 minutes. Choice/item/pair arrays contain 2–8 entries. Answers and grading are embedded locally; packs are learning resources, not secure examinations.
 
-Example citation: a source with `id: notes-p4` and `locator: Page 4` can be referenced by `sourceRefs: ["notes-p4"]`. Keep the original document on the user's device; citation metadata is not a replacement for the source.
+## Question types
 
-Version 1 intentionally has one exercise type. Adding matching, free text grading, media, or new fields requires an explicit version and migration policy. Run the validator before distributing a pack. The starter decodes the bundled pack with Swift Codable; production import needs full validation before decoding.
+| Type | Required variant fields | Grading / examples |
+| --- | --- | --- |
+| multipleChoice | choices: [{id,text}], correctChoiceId | Exactly one choice; vocabulary or code-output prediction |
+| multipleSelect | choices: [{id,text}], correctChoiceIds: [id] | Exact set; no partial credit; select valid statements |
+| trueFalse | correctAnswer: boolean | Boolean equality; misconceptions and conceptual checks |
+| shortAnswer | acceptedAnswers: [string] | Explicit alternatives; translation, terminology, concise recall |
+| fillBlank | acceptedAnswers: [string] | One `___` placeholder in prompt; grammar, equations, missing terms |
+| ordering | items: [{id,text}], correctOrder: [id] | Exact permutation of every item; sentence construction or process steps |
+| matching | pairs: [{id,left,right}] | Each left must match its paired right; definitions or translations |
+| flashcard | answer: string | Reveal then self-assess; not automatically graded |
+| codeCompletion | code: string, codeLanguage: string, acceptedAnswers: [string] | One `___` code placeholder; compare missing text, never execute |
+
+Text answers normalize canonical Unicode, lowercase, and repeated whitespace, and trim surrounding whitespace. Accents, punctuation, and word order remain significant. Authors must enumerate legitimate alternatives; this is not semantic or LLM grading. Code completion only trims surrounding whitespace: case and internal formatting matter. Use multiple choice for code-reading and debugging explanations; executable coding tests need a future sandboxed design.
+
+Matching labels must be unique after trimming and case folding on each side, to avoid visually ambiguous questions. The UI shuffles choices and matching meanings. Ordering starts shuffled and uses accessible up/down actions. A flashcard's remembered/not-yet response counts toward session scoring and is explicitly labeled self-assessment.
+
+## Examples and limits
+
+- `spanish-basics.learning.json`: vocabulary, cloze, phrase matching, sentence order, translation recall, flashcards.
+- `python-foundations.learning.json`: code reading, multiple select, true/false, completion, terminology.
+- `study-skills.learning.json`: retrieval practice, sequencing, self-assessed recall.
+- `machine-learning.learning.json`: introductory single-choice compatibility example.
+
+Citations are plain text metadata. The app must not fetch them automatically. Keep the original document locally; citation metadata does not replace the source. Packs contain no API endpoint, credentials, executable hooks, media URLs, or HTML. Arbitrary file import still needs complete validation before Swift decoding, size limits, and useful error reporting.
+
+Audio, pronunciation, essays, image labeling, multi-blank questions, and runnable code are outside v2. Add them through a versioned schema and a corresponding renderer and grader. Run `scripts/validate_pack.py` before distributing a pack.

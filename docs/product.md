@@ -1,4 +1,4 @@
-# Product direction
+# Reverse Learning Anything — product direction
 
 ## Core journey
 1. Add your own notes, text, or an existing learning pack.
@@ -11,7 +11,7 @@
 Content belongs to the learner. AI providers are interchangeable. Imported packs can be used offline. A streak encourages a habit without blocking learning. Avoid paid hearts, punitive timers, and competitive pressure in the MVP.
 
 ## Prototype delivered
-A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow with bundled content, session XP, a schema, sample content, a validator, and endpoint integration specifications. The library has one real bundled course. Restarting the app resets progress.
+A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow with four bundled packs and nine question renderers, deterministic grading plus self-assessed flashcards, session XP, a versioned schema, a validator, and endpoint integration specifications. The library includes language learning, software engineering, general study, and machine learning. Restarting the app resets progress.
 
 ## MVP backlog
 - File importer for JSON packs, with size limits, schema + semantic validation, and actionable errors.
@@ -22,7 +22,7 @@ A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow wit
 - Native app icon derived from the selected concept, screenshots, tests on an iPhone simulator, and release signing.
 
 ## Future
-Additional exercise types require new schema versions and matching renderers. Sharing, accounts, remote storage, subscriptions, and hosted generation are outside the initial scope.
+The v2 format covers nine question types. Speech/listening, essays, media questions, multi-blank questions, and executable code challenges require future schema versions, renderers, and explicit grading designs. Sharing, accounts, remote storage, subscriptions, and hosted generation are outside the initial scope.
 
 ## Visual direction
 Original open-book / ascending-step mark, black and white palette, strong typography and soft rounded surfaces. The concept board explores library, path, and quiz. Do not ship the whole concept image as an app icon. Review name and icon before App Store release.

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "python-foundations",
+  "subject": "softwareEngineering",
+  "title": "Python: read and reason",
+  "description": "Python lists are mutable. A tuple is immutable. range(3) produces 0, 1, 2. The len function returns the number of items in a list. A function definition begins with def. Reading code is different from running it; this pack never executes code.",
+  "language": "en-AU",
+  "sources": [
+    {
+      "id": "source-py",
+      "title": "Python: read and reason — supplied notes",
+      "locator": "Section 1"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "python-foundations-lesson",
+      "order": 1,
+      "title": "Python: read and reason",
+      "estimatedMinutes": 3,
+      "concept": "Python lists are mutable. A tuple is immutable. range(3) produces 0, 1, 2. The len function returns the number of items in a list. A function definition begins with def. Reading code is different from running it; this pack never executes code.",
+      "sourceRefs": [
+        "source-py"
+      ],
+      "questions": [
+        {
+          "id": "py-read",
+          "type": "multipleChoice",
+          "prompt": "What values does list(range(3)) contain?",
+          "explanation": "range(3) starts at zero and stops before three.",
+          "sourceRefs": [
+            "source-py"
+          ],
+          "choices": [
+            {
+              "id": "py-c0",
+              "text": "[0, 1, 2]"
+            },
+            {
+              "id": "py-c1",
+              "text": "[1, 2, 3]"
+            },
+            {
+              "id": "py-c2",
+              "text": "[0, 1, 2, 3]"
+            }
+          ],
+          "correctChoiceId": "py-c0"
+        },
+        {
+          "id": "py-select",
+          "type": "multipleSelect",
+          "prompt": "Select both true statements.",
+          "explanation": "Lists are mutable; tuples are immutable.",
+          "sourceRefs": [
+            "source-py"
+          ],
+          "choices": [
+            {
+              "id": "py-s0",
+              "text": "Lists are mutable"
+            },
+            {
+              "id": "py-s1",
+              "text": "Tuples are immutable"
+            },
+            {
+              "id": "py-s2",
+              "text": "range(3) includes 3"
+            }
+          ],
+          "correctChoiceIds": [
+            "py-s0",
+            "py-s1"
+          ]
+        },
+        {
+          "id": "py-bool",
+          "type": "trueFalse",
+          "prompt": "A tuple can be changed in place.",
+          "explanation": "Tuples are immutable.",
+          "sourceRefs": [
+            "source-py"
+          ],
+          "correctAnswer": false
+        },
+        {
+          "id": "py-code",
+          "type": "codeCompletion",
+          "prompt": "Replace ___ with the function that counts items.",
+          "explanation": "len returns the number of items.",
+          "sourceRefs": [
+            "source-py"
+          ],
+          "code": "items = [10, 20, 30]\ncount = ___(items)",
+          "codeLanguage": "python",
+          "acceptedAnswers": [
+            "len"
+          ]
+        },
+        {
+          "id": "py-short",
+          "type": "shortAnswer",
+          "prompt": "Which keyword starts a function definition?",
+          "explanation": "A Python function definition starts with def.",
+          "sourceRefs": [
+            "source-py"
+          ],
+          "acceptedAnswers": [
+            "def"
+          ]
+        }
+      ]
+    }
+  ]
+}

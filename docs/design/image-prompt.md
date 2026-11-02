@@ -1,4 +1,4 @@
-# Concept generation
+# Initial concept generation (superseded)
 
 Generated with the built-in image generation tool. Dashmigo assets were unavailable; the user's monochrome description supplied the direction. This board illustrates planned product behavior, including features not implemented in the starter.
 
