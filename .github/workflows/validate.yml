@@ -22,3 +22,13 @@ jobs:
       - uses: actions/checkout@v4
       - run: swiftc ios/ReverseLearning/LearningPack.swift scripts/test_grading.swift -o /tmp/test-grading
       - run: /tmp/test-grading
+
+  creator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r creator/requirements.txt
+      - run: python -m unittest discover -s creator -p 'test_*.py'

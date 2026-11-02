@@ -9,3 +9,6 @@ xcuserdata/
 !.env.example
 __pycache__/
 *.pyc
+.venv-creator/
+.streamlit/secrets.toml
+output/

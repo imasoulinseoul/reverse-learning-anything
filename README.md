@@ -2,7 +2,7 @@
 
 An early iPhone app concept for turning your own learning material into short, playful lessons using your own AI provider.
 
-**Status: visual PoC + offline SwiftUI starter.** Import, live AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads six bundled packs and runs nine question types locally across language, software engineering, and study packs.
+**Status: visual PoC + offline SwiftUI starter.** The local creator supports AI generation through LiteLLM; iPhone file import, in-app AI generation, saved progress, and secure endpoint settings are planned; the starter currently loads six bundled packs and runs nine question types locally across language, software engineering, and study packs.
 
 ![iPhone concept](docs/design/iphone-concept-v2.png)
 
@@ -24,17 +24,30 @@ open ReverseLearning.xcodeproj
 
 Select an iPhone simulator and run. Device signing requires your own development team. The app does not contact a network service or require an API key.
 
-## Create a learning pack
+## Make your own learning materials
 
-Use [the JSON Schema](schemas/learning-pack.schema.json), [the sample pack](examples/machine-learning.learning.json), and [the format guide](docs/learning-pack.md). Version 2 supports nine question types and subject metadata; the validator also accepts existing v1 multiple-choice packs. It rejects unknown properties and requires source citations, explanations, stable IDs, and explicit order.
+Start with the **[Learning Pack Creator →](creator/README.md)**. It runs on your computer and checks every pack before download.
+
+| Easy route | What to do |
+| --- | --- |
+| **Bring your API key** | Paste notes, connect a provider or LiteLLM gateway, choose question types, and generate |
+| **Use a chat app you already have** | Download a ready-made prompt, paste the AI reply back, and validate |
+| **Skip AI completely** | Fill in a Front/Back flashcard table or upload CSV |
+| **Reuse a pack** | Upload or paste an existing learning pack, edit it, and check it |
+
+With Python 3.11–3.14 installed, run from the repo folder:
 
 ```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements-dev.txt
-.venv/bin/python scripts/validate_pack.py examples/*.learning.json
+python3 -m venv .venv-creator
+.venv-creator/bin/python -m pip install -r creator/requirements.txt
+.venv-creator/bin/python -m streamlit run creator/app.py --server.address 127.0.0.1 --browser.gatherUsageStats false
 ```
 
-The validator checks JSON Schema plus ID uniqueness, references, answers, and sequence. The demo uses the bundled validated sample; validation of arbitrary imported files remains future work.
+The API key stays in the local session; generated downloads contain no endpoint settings. The first route sends your notes to your selected AI service only when you click Generate. The other routes make no AI calls. [Setup, LiteLLM connections, no-key options, and troubleshooting](creator/README.md).
+
+**Using the download:** the current iPhone PoC needs packs bundled in Xcode; a Files importer is planned. The [creator guide](creator/README.md#use-the-downloaded-pack-in-the-iphone-poc) explains the exact steps.
+
+For developers, the [JSON Schema](schemas/learning-pack.schema.json), [format guide](docs/learning-pack.md), and `scripts/validate_pack.py` define and validate the contract. Version 2 supports nine question types and subject metadata; the validator also accepts existing v1 multiple-choice packs.
 
 ## Learn across subjects
 
@@ -60,6 +73,7 @@ Both are bundled in the app library and work offline. Their [Basics notes](examp
 ## Architecture and next steps
 
 - SwiftUI app with local quiz flow and session XP in `ios/ReverseLearning`.
+- Local material creator with LiteLLM, copy-prompt, flashcards, and JSON validation in `creator`.
 - Provider-neutral content format in `schemas` and `examples`.
 - [AI endpoint contract and generation prompt](docs/ai-endpoint.md).
 - [Product scope and roadmap](docs/product.md).
@@ -68,7 +82,7 @@ No provider credentials, user documents, or private project assets belong in thi
 
 ## Validation
 
-All sample packs and validator rejection tests are checked by CI. Foundation-only Swift grading tests also run on macOS. Locally, format validation, grading tests, project generation, and Swift syntax checks pass. Xcode compilation and simulator visual QA require full Xcode; they were not available in the initial authoring environment.
+The creator has offline unit and UI tests, including mocked API responses; no paid provider call is made by the tests. All sample packs and validator rejection tests are checked by CI. Foundation-only Swift grading tests also run on macOS. Locally, format validation, grading tests, project generation, and Swift syntax checks pass. Xcode compilation and simulator visual QA require full Xcode; they were not available in the initial authoring environment.
 
 ## License
 

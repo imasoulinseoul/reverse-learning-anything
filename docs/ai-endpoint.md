@@ -1,6 +1,6 @@
 # Bring your own AI: proposed endpoint contract
 
-This is the integration specification. Network generation and endpoint settings are not implemented in the starter.
+The [local creator](../creator/README.md) implements a first LiteLLM integration with per-request model/key/base settings, prompt-only or JSON-object output, strict validation, and downloadable previews. Network generation and secure endpoint settings are not implemented inside the iPhone starter. The following describes the intended native integration; cancellation and multi-document extraction remain future native work.
 
 ## Configuration
 Store base URL, model ID, and optional bearer token per provider. Store tokens only in iOS Keychain, never in packs, preferences, analytics, logs, or Git. Require HTTPS for remote endpoints. An adapter may support an OpenAI-compatible `/v1/chat/completions` endpoint; do not assume all providers implement structured output identically. Other protocols need separate adapters.

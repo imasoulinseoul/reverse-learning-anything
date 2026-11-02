@@ -13,6 +13,10 @@ Content belongs to the learner. AI providers are interchangeable. Imported packs
 ## Prototype delivered
 A monochrome three-screen design concept, a SwiftUI library/lesson/quiz flow with six bundled packs and nine question renderers, deterministic grading plus self-assessed flashcards, session XP, a versioned schema, a validator, and endpoint integration specifications. The library includes language learning, software engineering, general study, machine learning, GitHub Basics, and GitHub Advanced. Restarting the app resets progress.
 
+## Local material creator
+
+The repository includes a local Streamlit creator: per-request LiteLLM model/key/base settings, optional JSON-object mode, validated downloads, a copy-prompt route for existing chat apps, offline flashcard authoring from a table/CSV, and JSON validation. This is separate from the iPhone UI. It does not extract PDFs or import files into the running iPhone app.
+
 ## MVP backlog
 - File importer for JSON packs, with size limits, schema + semantic validation, and actionable errors.
 - Text and PDF ingestion with source IDs and page mapping; inspect extracted text first.
